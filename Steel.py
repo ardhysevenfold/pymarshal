@@ -1,7 +1,7 @@
 import ast, random, base64, os, marshal, zlib, sys
 from colorama import Fore as f
 
-os.system("cls")
+os.system("clear")
 
 class Stealthfiy(ast.NodeTransformer):
     def __init__(self):
@@ -92,12 +92,12 @@ def Add_Dead_code(code):
     for line in obfuscated_lines:
         new_lines.append(line)
         dead_code_length = random.randint(2, 5)
-        dead_code = '__STEALTHIFY_V2__' * dead_code_length
+        dead_code = '__RacknarocK_V3__' * dead_code_length
         new_lines.append(f"#{dead_code}")
     return '\n'.join(new_lines)
 
 def Stealthcrypt(content):
-    CMARK = '__STEALTHIFY__V2__' * 15
+    CMARK = '__RacknarocK__V3__' * 15
     COFFSET = 10
     marshaled_data = marshal.dumps(content.encode())
     compressed_data = zlib.compress(marshaled_data)
@@ -111,22 +111,24 @@ def Stealthcrypt(content):
     return code
 
 try:
-    print(f.RED + """
-███████╗████████╗███████╗ █████╗ ██╗  ████████╗██╗  ██╗██╗███████╗██╗   ██╗    ██╗   ██╗██████╗ 
-██╔════╝╚══██╔══╝██╔════╝██╔══██╗██║  ╚══██╔══╝██║  ██║██║██╔════╝╚██╗ ██╔╝    ██║   ██║╚════██╗
-███████╗   ██║   █████╗  ███████║██║     ██║   ███████║██║█████╗   ╚████╔╝     ██║   ██║ █████╔╝
-╚════██║   ██║   ██╔══╝  ██╔══██║██║     ██║   ██╔══██║██║██╔══╝    ╚██╔╝      ╚██╗ ██╔╝██╔═══╝ 
-███████║   ██║   ███████╗██║  ██║███████╗██║   ██║  ██║██║██║        ██║        ╚████╔╝ ███████╗
-╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝╚═╝        ╚═╝         ╚═══╝  ╚══════╝
-- By Sirmilann [SR] - https://discord.gg/Eww5ucwY4a
+    print(f"{RED}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+print(f"""                                         
+                                         {GR}[INFORMASI]{L}
+ ██╗░░░██╗██╗░░░██╗██╗██████╗░     
+ ██║░░░██║██║░░░██║██║██╔══██╗     {PT}🔹AUTOR   = Racknarock{L}
+ ╚██╗░██╔╝╚██╗░██╔╝██║██████╔╝     {PT}🔹RNGv30T = {GRY}Ready{L}
+ ░╚████╔╝░░╚████╔╝░██║██╔═══╝░     {PT}🔹LOGIN   = VVIP{L}{PT}
+ ░░╚██╔╝░░░░╚██╔╝░░██║██║░░░░░     {PT}🔹SERVER  = {WW} {BO}ONLINE{L}{WW} {L}
+ ░░░╚═╝░░░░░░╚═╝░░░╚═╝╚═╝░░░░░
 """)
+print(f"{RED}▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
     file_path = input(f.RED + "File: ")
     iterations = int(input(f.RED + "Number of Obfuscation Layers: "))
-    antivm = input(f.RED + "Enable Anti VM? [yes/no]: ")  
-    add_junk = input("Add Dead Code? [yes/no]: ")
-    startup = input("Use Startup? [yes/no]: ")
-    anti_debug = input("Use Anti-Debug? [yes/no]: ")
-    enc_and_comp = input(f.RED + "Use Encoding And Encryption? [yes/no]: ")
+    antivm = input(f.RED + "Enable Anti VM? [y/n]: ")  
+    add_junk = input("Add Dead Code? [y/n]: ")
+    startup = input("Use Startup? [y/n]: ")
+    anti_debug = input("Use Anti-Debug? [y/n]: ")
+    enc_and_comp = input(f.RED + "Use Encoding And Encryption? [y/n]: ")
 
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -137,7 +139,7 @@ try:
     
     obfuscated_code = Stealth(code, iterations)
     
-    if antivm.lower() == 'yes':
+    if antivm.lower() == 'y':
         obfuscated_code += """
 import sys
 def get_base_prefix_compat():
@@ -148,7 +150,7 @@ if in_virtualenv() == True:
     sys.exit()
 """
 
-    if anti_debug.lower() == 'yes':
+    if anti_debug.lower() == 'y':
         obfuscated_code += """
 import threading,time,psutil,os
 keywords = [
@@ -184,7 +186,7 @@ def check_processes():
 threading.Thread(target=check_processes, daemon=True).start()
 """
 
-    if startup.lower() == 'yes':
+    if startup.lower() == 'y':
         obfuscated_code += """
 import sys,os,shutil
 currentfile = sys.argv[0]
@@ -192,10 +194,10 @@ folder_path = os.path.join(os.environ['APPDATA'],'Microsoft','Windows','Start Me
 shutil.copy(currentfile,folder_path)
 """
     
-    if add_junk.lower() == 'yes':
+    if add_junk.lower() == 'y':
         obfuscated_code = Add_Dead_code(obfuscated_code)
     
-    if enc_and_comp.lower() == 'yes':
+    if enc_and_comp.lower() == 'y':
         obfuscated_code = Stealthcrypt(obfuscated_code)
   
     file_name = file_path.rsplit('.', 1)[0]
@@ -204,7 +206,7 @@ shutil.copy(currentfile,folder_path)
     
     try:
         with open(obfuscated_file_path, 'w', encoding='utf-8') as file:
-            file.write("# Obfuscated With Stealthify V2 By Sirmilann\n" + obfuscated_code)
+            file.write("# Obfuscated With Steel V3 By RacknarocK\n" + obfuscated_code)
         print(f.RED + "Code Saved To:", obfuscated_file_path)
     except IOError as e:
         print(f.RED + "Error saving the obfuscated code:", str(e))
