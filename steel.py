@@ -55,7 +55,7 @@ class Stealthfiy(ast.NodeTransformer):
 
     def obfuscate_name(self, name):
         if name not in self.mapping:
-            self.mapping[name] = "".join(random.choice(["I", "l"]) for _ in range(40))
+            self.mapping[name] = "".join(random.choice(["%π", "∆£"]) for _ in range(40))
         return self.mapping[name]
 
     def visit_Import(self, node):
